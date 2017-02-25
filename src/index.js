@@ -154,19 +154,22 @@ module.exports = function (opts={}) {
         let index = 0;
 
         let next = function (res) {
-            if (index > api._plugins.length) {
+            if ((index >= api._plugins.length)) {
+                index++;
                 cb(res);
                 return res;
             } else {
                 let plugin = api._plugins[index];
+                index++;
                 if (typeof plugin.fn == 'function') {
                     plugin.fn(res, next);
                 } else {
                     console.error(plugin.name + ' plugin is invalid.');
                 }
-                index++;
             }
         }
+
+        next(ret);
     }
     
     api.parsedFiles = parsedFiles;
