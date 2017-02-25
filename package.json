@@ -1,0 +1,22 @@
+{
+  "name": "mds-to-json",
+  "version": "0.0.1",
+  "description": "parse md file to json.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "parse",
+    "json",
+    "md"
+  ],
+  "repository": "https://github.com/xiaofuzi/mdToJson",
+  "author": "yangxiaofu",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^3.8.1",
+    "marked": "^0.3.6",
+    "moment": "^2.17.1"
+  }
+}
