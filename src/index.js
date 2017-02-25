@@ -4,7 +4,8 @@ let fs = require('fs'),
     moment = require('moment'),
     marked = require('marked');
 
-let readFile = fs.readFileSync;
+let readFile = fs.readFileSync,
+    defaultDirname = '';
 
 /**
  * parse md file
@@ -30,6 +31,7 @@ function parseMdFile (filename) {
 let mdFileArr = [];
 
 function processMdFiles (dir) {
+    console.log('source dirname: ', dir);
     let files = fs.readdirSync(dir),
         retArr = [];
 
@@ -86,7 +88,9 @@ function jsonFiles (dirname) {
  * json files process
  */
 
-function parsedFiles (dirname, opts={}) {    
+function parsedFiles (dirname) { 
+    dirname = dirname || defaultDirname; 
+
     let postPath = dirname,
         posts = jsonFiles(postPath);
 
@@ -127,6 +131,7 @@ function parsedFiles (dirname, opts={}) {
 }
 
 module.exports = function (opts={}) {
+    defaultDirname = opts.dirname;
     let api = {
         _plugins: []
     };
