@@ -62,7 +62,10 @@ var res = {
 * use
     add a plugin
 
-* run
+* parse
+    * params
+        * marked: `Object`  marked options
+        * dirname: 'String' the soure dirname
 
     parse file use plugin
 
@@ -70,7 +73,7 @@ var res = {
 
 examples:
 
-```
+```javascript
 var mdToJson = require('mds-to-json')();
 
 mdToJson.use((res, next)=>{
@@ -84,6 +87,14 @@ mdToJson.use('printTotal', (res, next)=>{
 
     next(res);
 })
+
+mdToJson.parse((res)=>{
+    console.log(res);
+})
 ```
+
+## who used?
+
+[ssr-web(A fast, simple & powerful blog framework, powered by Node.js and Vue.)](https://github.com/xiaofuzi/ssr-web)
 
 
